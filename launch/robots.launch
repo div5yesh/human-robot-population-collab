@@ -1,0 +1,44 @@
+<launch>
+	<!-- Convert an xacro and put on parameter server -->
+	<param name="robot_description" command="$(find xacro)/xacro.py $(find turtlebot_description)/robots/kobuki_hexagons_kinect.urdf.xacro" />
+
+	<!-- Spawn a robot into Gazebo -->
+	<!--node name="spawn_urdf1" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model turtlebot" /-->
+
+	<!-- BEGIN ROBOT 1-->
+	  <group ns="robot1">
+	    <param name="tf_prefix" value="robot1_tf" />
+	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
+	      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
+	      <arg name="robot_name"  value="Tbot1" />
+	    </include>
+	  </group>
+	 
+	  <!-- BEGIN ROBOT 2-->
+	  <group ns="robot2">
+	    <param name="tf_prefix" value="robot2_tf" />
+	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
+	      <arg name="init_pose" value="-x -1 -y 1 -z 0" />
+	      <arg name="robot_name"  value="Tbot2" />
+	    </include>
+	  </group>
+
+	<!-- BEGIN ROBOT 3-->
+	  <group ns="robot3">
+	    <param name="tf_prefix" value="robot3_tf" />
+	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
+	      <arg name="init_pose" value="-x 1 -y -1 -z 0" />
+	      <arg name="robot_name"  value="Tbot3" />
+	    </include>
+	  </group>
+
+	<!-- BEGIN ROBOT 4-->
+	  <group ns="robot4">
+	    <param name="tf_prefix" value="robot4_tf" />
+	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
+	      <arg name="init_pose" value="-x -1 -y -1 -z 0" />
+	      <arg name="robot_name"  value="Tbot4" />
+	    </include>
+	  </group>
+
+</launch>
