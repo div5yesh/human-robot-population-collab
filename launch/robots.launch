@@ -6,38 +6,38 @@
 	<!--node name="spawn_urdf1" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model turtlebot" /-->
 
 	<!-- BEGIN ROBOT 1-->
-	  <group ns="robot1">
+	  <group ns="alice">
 	    <param name="tf_prefix" value="robot1_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x 1 -y 1 -z 0" />
-	      <arg name="robot_name"  value="Tbot1" />
+	      <arg name="robot_name"  value="Alice" />
 	    </include>
 	  </group>
 	 
 	  <!-- BEGIN ROBOT 2-->
-	  <group ns="robot2">
+	  <group ns="bob">
 	    <param name="tf_prefix" value="robot2_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x -1 -y 1 -z 0" />
-	      <arg name="robot_name"  value="Tbot2" />
+	      <arg name="robot_name"  value="Bob" />
 	    </include>
 	  </group>
 
 	<!-- BEGIN ROBOT 3-->
-	  <group ns="robot3">
+	  <group ns="charlie">
 	    <param name="tf_prefix" value="robot3_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x 1 -y -1 -z 0" />
-	      <arg name="robot_name"  value="Tbot3" />
+	      <arg name="robot_name"  value="Charlie" />
 	    </include>
 	  </group>
 
 	<!-- BEGIN ROBOT 4-->
-	  <group ns="robot4">
+	  <group ns="dave">
 	    <param name="tf_prefix" value="robot4_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x -1 -y -1 -z 0" />
-	      <arg name="robot_name"  value="Tbot4" />
+	      <arg name="robot_name"  value="Dave" />
 	    </include>
 	  </group>
 
