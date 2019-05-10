@@ -6,7 +6,7 @@ import math
 
 class Navigation:
     def __init__(self):
-        rospy.init_node('human_navigation')
+        rospy.init_node("human_teleop_nav")
     	self.pub = rospy.Publisher("/alice/mobile_base/commands/velocity", Twist, queue_size=10)
 
     def forward(self):
