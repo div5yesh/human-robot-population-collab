@@ -1,5 +1,21 @@
 <launch>
 	<include file="$(find gazebo_ros)/launch/empty_world.launch"></include>
+	<node name="map_server" pkg="map_server" type="map_server" args=" $(find human-robot-population-collab)/maps/map.yaml" />
+
+	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/> -->
+
+	<include file="$(find amcl)/examples/amcl_diff.launch" >
+	</include> 
+
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+		<rosparam file="$(find human-robot-population-collab)/params/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+		<rosparam file="$(find human-robot-population-collab)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+		<rosparam file="$(find human-robot-population-collab)/params/local_costmap_params.yaml" command="load" />
+		<rosparam file="$(find human-robot-population-collab)/params/global_costmap_params.yaml" command="load" /> 
+		<rosparam file="$(find human-robot-population-collab)/params/base_local_planner_params.yaml" command="load" />
+ 	</node>
 
 	<include file="$(find human-robot-population-collab)/launch/robots.launch"/>
+	<!-- <node name="rviz" pkg="rviz" type="rviz" /> -->
 </launch>
