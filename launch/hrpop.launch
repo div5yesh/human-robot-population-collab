@@ -1,9 +1,11 @@
 <launch>
 
-	<arg name="gui" default="true"/>
+	<arg name="gui" default="false"/>
 	<arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="gui" value="$(arg gui)" />
+		<arg name="debug" value="false"/>
 	</include>
 	<!-- <node name="map_server" pkg="map_server" type="map_server" args=" $(find human-robot-population-collab)/maps/map.yaml" /> -->
 
@@ -26,7 +28,7 @@
 
 
 	<include file="$(find human-robot-population-collab)/launch/human_teleop.launch" >
-		<arg name="robot_name"  value="bob" />
+		<arg name="robot_name"  value="alice" />
 	</include>
 
 	<!-- <node name="rviz" pkg="rviz" type="rviz" /> -->

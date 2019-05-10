@@ -44,11 +44,29 @@
     <node pkg="nodelet" type="nodelet" name="depthimage_to_laserscan"
         args="load depthimage_to_laserscan/DepthImageToLaserScanNodelet laserscan_nodelet_manager">
         <param name="scan_height" value="10"/>
-        <param name="output_frame_id" value="/camera_depth_frame"/>
+        <param name="output_frame_id" value="robot1_tf/camera_depth_frame"/>
         <param name="range_min" value="0.45"/>
-        <remap from="image" to="/camera/depth/image_raw"/>
-        <remap from="scan" to="/scan"/>
+        <remap from="image" to="camera/depth/image_raw"/>
+        <!-- <remap from="scan" to="scan"/> -->
     </node>
+
+      <!-- 3D sensor -->
+    <arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/>  <!-- r200, kinect, asus_xtion_pro -->
+    <!-- <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+        <arg name="rgb_processing" value="false" />
+        <arg name="depth_registration" value="false" />
+        <arg name="depth_processing" value="false" />
+        
+        <arg name="scan_topic" value="/scan" />
+    </include> -->
+
+    <!-- arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/>  <!- r200, kinect, asus_xtion_pro -->
+	<arg name="custom_gmapping_launch_file" default="$(find turtlebot_navigation)/launch/includes/gmapping/$(arg 3d_sensor)_gmapping.launch.xml"/>
+	<include file="$(arg custom_gmapping_launch_file)">
+		<arg name="scan_topic"  default="scan" />
+		<arg name="base_frame"  default="base_footprint"/>
+		<arg name="odom_frame" default="odom"/>
+	</include>
 
     <!-- Bumper/cliff to pointcloud (not working, as it needs sensors/core messages) -->
     <include file="$(find turtlebot_bringup)/launch/includes/kobuki/bumper2pc.launch.xml"/>
