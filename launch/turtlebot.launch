@@ -61,12 +61,12 @@
     </include> -->
 
     <!-- arg name="3d_sensor" default="$(env TURTLEBOT_3D_SENSOR)"/>  <!- r200, kinect, asus_xtion_pro -->
-	<arg name="custom_gmapping_launch_file" default="$(find turtlebot_navigation)/launch/includes/gmapping/$(arg 3d_sensor)_gmapping.launch.xml"/>
+	<!-- <arg name="custom_gmapping_launch_file" default="$(find turtlebot_navigation)/launch/includes/gmapping/$(arg 3d_sensor)_gmapping.launch.xml"/>
 	<include file="$(arg custom_gmapping_launch_file)">
-		<arg name="scan_topic"  default="scan" />
-		<arg name="base_frame"  default="base_footprint"/>
-		<arg name="odom_frame" default="odom"/>
-	</include>
+		<arg name="scan_topic"  default="$(arg robot_name)/scan" />
+		<arg name="base_frame"  default="robot1_tf/base_footprint"/>
+		<arg name="odom_frame" default="robot1_tf/odom"/>
+	</include> -->
 
     <!-- Bumper/cliff to pointcloud (not working, as it needs sensors/core messages) -->
     <include file="$(find turtlebot_bringup)/launch/includes/kobuki/bumper2pc.launch.xml"/>
