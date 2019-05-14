@@ -11,3 +11,15 @@ roslaunch turtlebot_gazebo gmapping_demo.launch
 roslaunch turtlebot_gazebo amcl_demo.launch map_file:=~/slam/map.yaml
 roslaunch turtlebot_rviz_launchers view_navigation.launch
 send goals
+
+# HR Pop SLAM
+roslaunch human-robot-population-collab hrpop.launch
+roslaunch human-robot-population-collab gmapping.launch
+rosrun rviz rviz
+rosrun map_server map_saver -f ~/catkin_ws/src/human-robot-collab/maps/slam
+
+# HR Pop AMCL
+roslaunch human-robot-population-collab hrpop.launch
+roslaunch human-robot-population-collab gmapping.launch
+roslaunch human-robot-population-collab amcl.launch map_file:=~/catkin_ws/src/human-robot-collab/maps/slam
+rosrun rviz rviz

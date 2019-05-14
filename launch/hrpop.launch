@@ -2,11 +2,14 @@
 
 	<arg name="gui" default="false"/>
 	<arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
+	<!-- <arg name="world_name" value="worlds/willowgarage.world"/> -->
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="gui" value="$(arg gui)" />
 		<arg name="debug" value="false"/>
+		<arg name="world_name" value="$(arg world_file)"/>
 	</include>
+
 	<!-- <node name="map_server" pkg="map_server" type="map_server" args=" $(find human-robot-population-collab)/maps/map.yaml" /> -->
 
 	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
