@@ -6,4 +6,10 @@
 		<arg name="base_frame"  default="robot1_tf/base_footprint"/>
 		<arg name="odom_frame" default="robot1_tf/odom"/>
 	</include>
+
+	<!-- <include name="slam2" file="$(arg custom_gmapping_launch_file)">
+		<arg name="scan_topic"  default="bob/scan" />
+		<arg name="base_frame"  default="robot2_tf/base_footprint"/>
+		<arg name="odom_frame" default="robot2_tf/odom"/>
+	</include> -->
 </launch>
