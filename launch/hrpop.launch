@@ -1,8 +1,8 @@
 <launch>
 
-	<arg name="gui" default="false"/>
-	<arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/>
-	<!-- <arg name="world_name" value="worlds/willowgarage.world"/> -->
+	<arg name="gui" default="true"/>
+	<!-- <arg name="world_file" default="$(env TURTLEBOT_GAZEBO_WORLD_FILE)"/> -->
+	<arg name="world_file" value="$(find human-robot-population-collab)/worlds/props.world"/>
 
 	<include file="$(find gazebo_ros)/launch/empty_world.launch">
 		<arg name="gui" value="$(arg gui)" />
@@ -30,9 +30,9 @@
 
 
 
-	<include file="$(find human-robot-population-collab)/launch/human_teleop.launch" >
+	<!-- <include file="$(find human-robot-population-collab)/launch/human_teleop.launch" >
 		<arg name="robot_name"  value="alice" />
-	</include>
+	</include> -->
 
 	<!-- <node name="rviz" pkg="rviz" type="rviz" /> -->
 </launch>
