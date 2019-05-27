@@ -26,16 +26,16 @@ class Assemble:
         client.send_goal(goal)
         client.wait_for_result(rospy.Duration.from_sec(5.0))
 
-        print("Result:" + client.get_result())
-        print("State:" + client.get_state())
+        # print("Result:" + client.get_result())
+        # print("State:" + client.get_state())
 
-        if(client.get_state() == actionlib.SimpleGoalState.DONE):
-            print("done")
-        else:
-            print("error")
+        # if(client.get_state() == actionlib.SimpleGoalState.DONE):
+        #     print("done")
+        # else:
+        #     print("error")
 
 assemble = Assemble()  
 while not rospy.is_shutdown():
-    shape = raw_input("Enter formation:")
-    if shape == "square":
+    shape = raw_input("Enter command:")
+    if shape == "go":
         assemble.square()

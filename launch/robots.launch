@@ -17,7 +17,7 @@
 	  <group ns="alice">
 	    <param name="tf_prefix" value="robot1_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
-	      <arg name="init_pose" value="-x 0 -y 1 -z 0" />
+	      <arg name="init_pose" value="-x 0 -y 0 -z 0" />
 	      <arg name="robot_name"  value="alice" />
 	    </include>
 	  </group>
@@ -26,27 +26,27 @@
 	  <group ns="bob">
 	    <param name="tf_prefix" value="robot2_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
-	      <arg name="init_pose" value="-x 0 -y -1 -z 0" />
+	      <arg name="init_pose" value="-x 0 -y -2 -z 0" />
 	      <arg name="robot_name"  value="bob" />
 	    </include>
 	  </group>
 
 	<!-- BEGIN ROBOT 3-->
-	  <group ns="charlie">
+	  <!-- <group ns="charlie">
 	    <param name="tf_prefix" value="robot3_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x 1 -y -1 -z 0" />
 	      <arg name="robot_name"  value="charlie" />
 	    </include>
-	  </group>
+	  </group> -->
 
 	<!-- BEGIN ROBOT 4-->
-	  <group ns="dave">
+	  <!-- <group ns="dave">
 	    <param name="tf_prefix" value="robot4_tf" />
 	    <include file="$(find human-robot-population-collab)/launch/turtlebot.launch" >
 	      <arg name="init_pose" value="-x -1 -y -1 -z 0" />
 	      <arg name="robot_name"  value="dave" />
 	    </include>
-	  </group>
+	  </group> -->
 
 </launch>
